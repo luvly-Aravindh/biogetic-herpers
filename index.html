@@ -45,7 +45,7 @@ br.spacer{display:block;content:"";margin-top:14px}
 .sidebar-layout{display:grid;grid-template-columns:1fr}
 .sidebar-layout>*{min-width:0}
 .aside-container{display:none}
-.cta{text-decoration:none;text-align:center;display:block;max-width:100%;box-shadow:0 4px 7px 1px rgba(0,0,0,.19);font-family:"Open Sans",sans-serif;padding:12px 30px;margin:26px 0 30px;font-size:17px;line-height:1.25;font-weight:700;letter-spacing:.01em;color:#f6f9fe;background-color:#149312;border-radius:5px}
+.cta{text-decoration:none;text-align:center;display:block;max-width:100%;box-shadow:0 4px 7px 1px rgba(0,0,0,.19);font-family:"Open Sans",sans-serif;padding:12px 25px;margin:26px 0 30px;font-size:17px;line-height:1.25;font-weight:700;letter-spacing:.01em;color:#f6f9fe;background-color:#149312;border-radius:5px}
 .cta p{margin:0}
 .about-card,.card-stack,.pricing-card{background:#F7F8F8;padding:20px;border-radius:5px}
 .card-title{font-size:20px;font-weight:700;font-family:Roboto,sans-serif;margin:0;color:#1a1a1a}
@@ -203,6 +203,30 @@ h2{font-size:32px;line-height:3rem;margin:48px 0 22px}
 .cmp thead th a{color:#fff;text-decoration:underline;text-underline-offset:2px}
 .stickybar a.sb-buy{background:#2bdc46;color:#08350f}
 .stickybar a{padding:10px 13px;font-size:13.5px}
+
+/* ---- phones + tablets (below 1024px): desktop layout untouched ---- */
+@media (max-width:1023px){
+  .swipe{display:none!important}
+  .cmp:not(.cmp-stack){min-width:0}
+  .cmp-stack{min-width:0;font-size:14px}
+  .cmp-stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .cmp-stack,.cmp-stack tbody,.cmp-stack tr,.cmp-stack td{display:block;width:100%}
+  .cmp-stack tr{border:1px solid #e2e6ea;border-radius:6px;overflow:hidden;margin-bottom:12px;background:#fff!important}
+  .cmp-stack td{border:0;border-top:1px solid #e2e6ea;display:grid;grid-template-columns:minmax(96px,34%) 1fr;gap:12px;padding:10px 12px}
+  .cmp-stack td::before{content:attr(data-label);font-weight:700;font-size:12.5px;color:#5B6B70;line-height:1.45}
+  .cmp-stack td:first-child{display:block;border-top:0;background:#0f2b33;color:#fff!important;white-space:normal;font-size:14.5px}
+  .cmp-stack td:first-child::before{content:none}
+  .cmp-stack .hi td:first-child{background:#0d6b0c}
+  .cmp-stack td:last-child{background:#F2FBF2}
+  .cmp-stack td:empty::after{content:"\2014";color:#9aa5a8}
+  .prow{gap:10px}
+  .prow b{text-align:right}
+}
+@media (max-width:360px){
+  .stickybar{gap:8px;padding:8px 10px}
+  .stickybar .sb-t{font-size:11px}
+  .stickybar a{padding:10px 10px;font-size:13px}
+}
 </style>
 </head>
 <body>
@@ -266,16 +290,16 @@ h2{font-size:32px;line-height:3rem;margin:48px 0 22px}
 
       <p class="swipe">Swipe the table sideways to see every column</p>
       <div class="cmp-wrap">
-        <table class="cmp">
+        <table class="cmp cmp-stack">
           <thead><tr><th></th><th>Suppressive antivirals<br/><span style="font-weight:400">acyclovir, valacyclovir</span></th><th>Doing nothing,<br/>waiting it out</th><th>Biogetica Rescue Kit</th></tr></thead>
           <tbody>
-            <tr><td>What it addresses</td><td>Viral replication directly</td><td>Nothing. Outbreaks run their course.</td><td>Immune terrain and outbreak frequency, by getting to the virus even when dormant.</td></tr>
-            <tr><td>Cure?</td><td>No. You will have both antibodies and actual Virus</td><td>No. You will have both antibodies and actual Virus and transmit the most</td><td>No. Nothing cures HSV, and we say so plainly.</td></tr>
-            <tr><td>Reduces outbreak frequency</td><td>Yes, well established</td><td>No</td><td>A published trial reported reduced or no recurrence in the majority of participants over five years. Outbreak duration and chance of future outbreaks was lowest here.</td></tr>
-            <tr class="hi"><td>Reduces transmission risk</td><td>Yes</td><td>No</td><td>Not established. Antivirals remain the evidence-based tool for this.</td></tr>
-            <tr><td>Daily commitment</td><td>Daily pill, ongoing</td><td>None</td><td>Tablets two to three times daily for four to six months</td></tr>
-            <tr><td>Works alongside antivirals?</td><td></td><td></td><td>Yes. Designed to run alongside or alone.</td></tr>
-            <tr><td>Cost</td><td>Ongoing prescription cost</td><td>None</td><td>One 160 day course, refundable if it does not help</td></tr>
+            <tr><td>What it addresses</td><td data-label="Suppressive antivirals">Viral replication directly</td><td data-label="Doing nothing">Nothing. Outbreaks run their course.</td><td data-label="Biogetica Rescue Kit">Immune terrain and outbreak frequency, by getting to the virus even when dormant.</td></tr>
+            <tr><td>Cure?</td><td data-label="Suppressive antivirals">No. You will have both antibodies and actual Virus</td><td data-label="Doing nothing">No. You will have both antibodies and actual Virus and transmit the most</td><td data-label="Biogetica Rescue Kit">No. Nothing cures HSV, and we say so plainly.</td></tr>
+            <tr><td>Reduces outbreak frequency</td><td data-label="Suppressive antivirals">Yes, well established</td><td data-label="Doing nothing">No</td><td data-label="Biogetica Rescue Kit">A published trial reported reduced or no recurrence in the majority of participants over five years. Outbreak duration and chance of future outbreaks was lowest here.</td></tr>
+            <tr class="hi"><td>Reduces transmission risk</td><td data-label="Suppressive antivirals">Yes</td><td data-label="Doing nothing">No</td><td data-label="Biogetica Rescue Kit">Not established. Antivirals remain the evidence-based tool for this.</td></tr>
+            <tr><td>Daily commitment</td><td data-label="Suppressive antivirals">Daily pill, ongoing</td><td data-label="Doing nothing">None</td><td data-label="Biogetica Rescue Kit">Tablets two to three times daily for four to six months</td></tr>
+            <tr><td>Works alongside antivirals?</td><td data-label="Suppressive antivirals"></td><td data-label="Doing nothing"></td><td data-label="Biogetica Rescue Kit">Yes. Designed to run alongside or alone.</td></tr>
+            <tr><td>Cost</td><td data-label="Suppressive antivirals">Ongoing prescription cost</td><td data-label="Doing nothing">None</td><td data-label="Biogetica Rescue Kit">One 160 day course, refundable if it does not help</td></tr>
           </tbody>
         </table>
       </div>
